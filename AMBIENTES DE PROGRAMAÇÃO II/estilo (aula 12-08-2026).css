@@ -1,0 +1,32 @@
+/* Estilo externo*/
+h1{
+    color: pink;
+    background-color: orange;
+}
+/* Classe associada */
+h1.cor1{
+    color: red;
+}
+h1.cor2{
+    color: black;
+}
+/* Classe livre*/
+.centro{
+    text-align: center;
+}
+/* Seletor Decendente (em todos os niveis) */
+p em{
+    color: brown;
+    font-size: 20px;
+}
+/* Seletor Filho (somente no primeiro nivel) */
+div p{
+    background-color: gray;
+}
+div>p{
+    background-color: thistle;
+}
+/* Modificador Universal*/
+*{
+    font-family: Verdana;
+}
