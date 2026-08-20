@@ -1,0 +1,23 @@
+/*CSS EXTERNO*/
+*{font-size: 25px;}
+.vertical{
+    vertical-align: middle;
+}
+.alinha{
+    width: 550px;
+    margin: 0 auto;
+}
+.centro{
+    text-align: center;
+}
+.transp{
+    opacity: 0.5;
+}
+.fundo{
+    background-image: url(assets/css.jpg),url(assets/html.jpg);
+    background-repeat: no-repeat;
+    background-position: 2vh 10vh, 21vh 10vh;
+    background-attachment: fixed;
+    background-color: aqua;
+
+}
