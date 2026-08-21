@@ -1,0 +1,16 @@
+*{
+    font-size: 25px;
+    font-family: verdana;
+}
+.lista1{
+    list-style-type: lower-alpha; /* decimal roman alpha - lower upper */
+}
+.lista2 li{
+    list-style-type: square; /* disc square circle */
+}
+.lista2 li dd{
+    font-size: 10px;
+}
+.lista3{
+    list-style-image: url(asset/icon.png);
+}

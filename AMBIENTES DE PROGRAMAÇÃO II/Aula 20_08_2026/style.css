@@ -1,0 +1,21 @@
+/* CSS Externo*/
+*{
+    font-size: 25px;
+    font-family: verdana;
+}
+.lista1{
+    list-style-type: lower-alpha; /* decimal roman alpha - lower upper */
+}
+.lista2{
+    list-style-type: square; /* disc square circle */
+}
+.lista3{
+    list-style-image: url(asset/setaazul.gif);
+}
+.menu li{
+    display: inline;
+    background-color: gray;
+    color: white;
+    padding-left: 50px;
+    padding-right: 50px;
+}
