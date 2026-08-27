@@ -1,0 +1,24 @@
+*{
+    font-size: 25px;
+    font-family: verdana;
+}
+.largura{
+    width: 600px;
+    margin: 0 auto;
+}
+.borda th,td,th{
+    border-top: 3px double red;
+    border-bottom: 3px dashed blue;
+    border-left: 3px dotted green;
+    border-right: 3px solid orange;
+    border-radius: 10px;
+}
+.espaco{
+    border-spacing: 8px;
+}
+.fundo td,th {
+    background-color: #ffffcc;
+}
+.zebra tr:nth-child(even){
+    background-color: gray;
+}
