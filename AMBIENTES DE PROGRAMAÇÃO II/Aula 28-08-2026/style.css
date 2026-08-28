@@ -1,0 +1,30 @@
+*{
+    font-size: 15px;
+    font-family: verdana;
+}
+body{
+    background-color: black;
+}
+.largura{
+    width: 600px;
+    margin: 0 auto;
+}
+.borda th,td,th{
+    border: 1.5px solid rgba(53, 116, 235, 0.589);
+}
+.espaco{
+    border-spacing: 0px;
+}
+.letra td,th {
+    color: white;
+}
+.letra th,td {
+    color: rgb(27, 163, 204);
+}
+.titulo{
+    background-color: rgba(23, 37, 230, 0.747);
+    color: white;
+}
+.table2{
+    padding: 25px;
+}
