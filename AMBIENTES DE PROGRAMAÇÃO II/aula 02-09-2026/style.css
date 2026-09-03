@@ -1,0 +1,28 @@
+*{
+    font: 20px verdana;
+}
+.menu li{
+    display: inline;
+    background-color: gray;
+    color: white;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+a.cris:link{
+    text-decoration: none;
+    color: white;
+}
+a.cris:visited{
+    text-decoration: none;
+    color: white;
+}
+li:hover{
+    text-decoration: underline;
+    color: orange;
+    font-size: 28px;
+    border: 3px orange dashed;
+}
+a.cris:active{
+    text-decoration: none;
+    color: white;
+}
