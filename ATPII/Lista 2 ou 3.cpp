@@ -48,7 +48,7 @@ void InserirVetor(int Vet[TF], int &TL){
 	}
 }
 
-void ExibirVetor(int Vet[TF], int TL){
+void ExibirVetor(int Vet[], int TL){
 	int i;
 	for(i = 0; i < TL; i++){
 		printf("\nValor posissao [%d]: [%d]", i+1, Vet[i]);
@@ -56,10 +56,8 @@ void ExibirVetor(int Vet[TF], int TL){
 	getch();
 }
 
-int ContidoVet(int Vet[TF], int TL){
-	int i=0, Comp, Exist = 0;
-	printf("\nDe um Valor para Comparação: ");
-	scanf("%d", &Comp);
+int ContidoVet(int Vet[TF], int TL, int Comp){
+	int i=0, Exist = 0;
 	while(i < TL && Vet[i] != Comp)
 		i ++;
 	if(i < TL)
@@ -84,15 +82,96 @@ void DecBina(int Dec){
 }
 
 void SubConj(int VetA[], int TLA, int VetB[], int TLB){
-	int VetC[TF], TLC = 0, i, j;
+	int VetC[TF*2], TLC = 0, i, j,k;
+	
 	for(i=0; i < TLA; i++){
-		for(j=0; j < TLB; j++){
-			if(VetA[i] != VetB[j]){
-				VetC[TLC] = VetA[i];
+		if(ContidoVet(VetB, TLB, VetA[i]) == 0)
+			if(ContidoVet(VetC, TLC, VetA[i]) == 0){
+				VetC[TLC]=VetA[i];
 				TLC ++;
 			}
-		}
 	}
+	for(i=0; i < TLB; i++){
+		if(ContidoVet(VetA, TLA, VetB[i]) == 0)
+			if(ContidoVet(VetC, TLC, VetB[i]) == 0){
+				VetC[TLC]=VetB[i];
+				TLC ++;
+			}
+	}
+	printf("\n*****Resultado da Subtração entre Verotes(A e B)*****");
+	for(i=0; i < TLC; i++){
+		printf("\nVetor C [%d]: %d", i+1, VetC[i]);
+	}
+	getch();
+}
+
+void MERGE(int VetA[], int TLA, int VetB[], int TLB){
+	int VetC[TF*2], TLC = 0, i, j,k;
+	
+	for(i=0; i < TLA; i++){
+		if(ContidoVet(VetB, TLB, VetA[i]) == 0)
+			if(ContidoVet(VetC, TLC, VetA[i]) == 0){
+				j = 0;
+				while(j < TLC && VetC[j]<VetA[i])
+					j++;
+				if(j == TLC){
+					VetC[TLC]=VetA[i];
+					TLC ++;
+				}
+				else{
+					for(k=TLC; k > j; k--){
+						VetC[k]=VetC[k-1];
+					}
+					VetC[TLC]=VetA[i];
+					TLC ++;
+				}
+			}
+	}
+	for(i=0; i < TLB; i++){
+		if(ContidoVet(VetA, TLA, VetB[i]) == 0)
+			if(ContidoVet(VetC, TLC, VetB[i]) == 0){
+				j = 0;
+				while(j < TLC && VetC[j]<VetB[i])
+					j++;
+				if(j == TLC){
+					VetC[TLC]=VetB[i];
+					TLC ++;
+				}
+				else{
+					for(k=TLC; k > j; k--){
+						VetC[k]=VetC[k-1];
+					}
+					VetC[j]=VetB[i];
+					TLC ++;
+				}
+			}
+	}
+	
+	printf("\n*****Resultado do MERGE entre Verotes(A e B)*****");
+	for(i=0; i < TLC; i++){
+		printf("\nVetor C [%d]: %d", i+1, VetC[i]);
+	}
+	getch();
+}
+
+void InteConj(int VetA[], int TLA, int VetB[], int TLB){
+	int VetC[TF*2], TLC = 0, i, j,k;
+	
+	for(i=0; i < TLA; i++){
+		if(ContidoVet(VetB, TLB, VetA[i]) == 1)
+			if(ContidoVet(VetC, TLC, VetA[i]) == 0){
+				VetC[TLC]=VetA[i];
+				TLC ++;
+			}
+	}
+	for(i=0; i < TLB; i++){
+		if(ContidoVet(VetA, TLA, VetB[i]) == 1)
+			if(ContidoVet(VetC, TLC, VetB[i]) == 0){
+				VetC[TLC]=VetB[i];
+				TLC ++;
+			}
+	}
+	printf("\n*****Resultado da Intersecção entre Verotes(A e B)*****");
 	for(i=0; i < TLC; i++){
 		printf("\nVetor C [%d]: %d", i+1, VetC[i]);
 	}
@@ -101,7 +180,7 @@ void SubConj(int VetA[], int TLA, int VetB[], int TLB){
 
 void Executar(void){
 	char op;
-	int VetA[TF], TLA=0, MaFr=0, QtdVz, VetB[TF], TLB=0,SOMA, Dec;
+	int VetA[TF], TLA=0, MaFr=0, QtdVz, VetB[TF], TLB=0,SOMA, Dec,Comp;
 	do{
 		op = Menu();
 		clrscr();
@@ -139,7 +218,10 @@ void Executar(void){
 				getch();
 				break;
 			case 'G':
-				printf("\nO Numero [%d] no vetor. ([0] Não Existe, [1] Existe)",ContidoVet(VetA, TLA));
+				
+				printf("\nDe um Valor para Comparação: ");
+				scanf("%d", &Comp);
+				printf("\nO Numero [%d] no vetor. ([0] Não Existe, [1] Existe)",ContidoVet(VetA, TLA, Comp));
 				getch();
 				break;
 			case 'H':
@@ -148,12 +230,33 @@ void Executar(void){
 				DecBina(Dec);
 				break;
 			case 'I':
-				SubConj(VetA, TLA, VetB, TLB);
+				if(TLA>0 || TLB>0)
+					SubConj(VetA, TLA, VetB, TLB);
+				else{
+					printf("\nNão é possivel realizar a operação!");
+				}
 				break;
 			case 'J':
-				
+				if(TLA>0 || TLB>0)
+					InteConj(VetA, TLA, VetB, TLB);
+				else{
+					printf("\nNão é possivel realizar a operação!");
+				}
 				break;
 			case 'K':
+				if(TLA>0 || TLB>0)
+					MERGE(VetA, TLA, VetB, TLB);
+				else{
+					printf("\nNão é possivel realizar a operação!");
+				}
+				break;
+			case 'L':
+				
+				break;
+			case 'M':
+				
+				break;
+			case 'N':
 				
 				break;
 		}
@@ -172,8 +275,8 @@ char Menu(void){
 	printf("\n[G] Valor no está Contido no Vetor");
 	printf("\n[H] Decimal para Binario");
 	printf("\n[I] Soma Conjunto");
-	printf("\n[J]");
-	printf("\n[K]");
+	printf("\n[J] Intersecção de Conjuntos");
+	printf("\n[K] MERGE");
 	printf("\n[L]");
 	printf("\n[M]");
 	printf("\n[N]");
