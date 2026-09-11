@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula Formulario</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        *{
+            font: 20px verdna;
+        }
+    </style>
+</head>
+<body>
+    <h2>Cadastro de Clientes</h2>
+    <hr>
+    <form action="pagina.jsp" name="FCad" method="post">
+        <label for="fnome">Nome:</label>
+        <input type="text" name="fnome" size="40" maxlength="30" placeholder="Digite seu nome">
+        <br><br>
+        <label for="fsenha">Senha:</label>
+        <input type="password" name="fsenha" size="10" maxlength="8" placeholder="8 caracteres">
+        <br><br>
+        <label for="fassunto">Escolha assuntos de interesse:</label><br>
+        <input type="checkbox" name="fassunot1" value="1">HTML<br>
+        <input type="checkbox" name="fassunot2" value="2">CSS<br>
+        <input type="checkbox" name="fassunot3" value="3">ATP<br>
+        <input type="checkbox" name="fassunot4" value="4">ISI<br>
+        <input type="checkbox" name="fassunot5" value="5">W3C<br>
+        <input type="checkbox" name="fassunot6" value="6">AMB<br>
+        <input type="checkbox" name="fassunot7" value="7">CD<br>
+        <input type="checkbox" name="fassunot8" value="8">AC<br>
+        <br><br>
+        <label for="info">Quer receber informacações sobre os temas?</label><br>
+        <input type="radio" name="finfo" value="1">Sim<br>
+        <input type="radio" name="finfo" value="2">Não<br>
+        <br>
+        <label for="ffoto">Escolha uma foto:</label>
+        <input type="file" name="ffoto">
+        <br><br>
+        <label for="fcid">Cidade:</label>
+        <select name="fcid">
+            <option value="1">Presidente Prudente</option>
+            <option value="2">Maceió</option>
+            <option value="3">Onde a vida me levar</option>
+        </select>
+        <br><br>
+        <label for="fcom">Comentarios</label>
+        <textarea name="fcom" cols="30" rows="10"></textarea>
+        <br><br>
+        <label for="ftel">Telefone</label>
+        <input type="tel" name="ftel" size="40" pattern="\(\d{2}\)\s\d{5}-\d{4}" placeholder="(xx)xxxxx-xxxx">
+        <br><br>
+        <label for="fmail">e-mailk</label>
+        <input type="email" name="fmail">
+        <br><br>
+        <label for="fdata">Data</label>
+        <input type="date" name="fdata">
+
+
+
+
+        <br><br>
+        <input type="button" id="mensagem" value="ok" onclick="alert('Sucesso!!!!')">
+        <input type="submit" value="gravar" id="bgravar">
+        <input type="reset" value="limpar" id="blimpar">
+    </form>
+</body>
+</html>
